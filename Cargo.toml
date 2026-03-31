@@ -4,3 +4,10 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+config = "0.15.22"
+dotenv = "0.15.0"
+envy = "0.4.2"
+#lettre = { version = "0.11.20", features = ["smtp-transport", "builder", "tokio1"] }
+serde = { version = "1.0.228", features = ["derive"] }
+tokio = { version = "1.50.0", features = ["full"] }
+lettre = { version = "0.11.20", default-features = false, features = ["tokio1", "smtp-transport", "builder", "tokio1-rustls-tls"] }
