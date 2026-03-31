@@ -1,3 +1,5 @@
-fn print_smpt(){
+
+
+pub fn print_smpt(){
     println!("smpt server ");
 }
