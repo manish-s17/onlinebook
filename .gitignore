@@ -1,5 +1,9 @@
 # Rust
 target/
 
+# Env
 .env
+.env.*
 
+# Docker 
+.dockerignore

@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: onlinebook
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    container_name: rust_app
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/onlinebook
+      SMTP_USERNAME: your_email@gmail.com
+      SMTP_PASSWORD: your_app_password
+      SMTP_SERVER: smtp.gmail.com
+      SMTP_PORT: 587
+    ports:
+      - "3000:3000"
